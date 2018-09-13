@@ -7,7 +7,8 @@ scalaVersion := "2.11.12"
 
 val scalaTestVersion = "3.0.5"
 val sparkVersion = "2.3.0"
-val scalazVersion = "7.1.0"
+val scalazVersion = "7.1.17"
+val kafkaVersion = "2.0.0"
 
 resolvers ++= Seq(
     "apache-snapshots" at "https://repository.apache.org/content/repositories/releases/"
@@ -22,7 +23,7 @@ libraryDependencies ++= Seq(
     "org.scalaz" %% "scalaz-core" % scalazVersion,
     "org.scalaz" %% "scalaz-effect" % scalazVersion,
     "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
-    "org.scalaz" %% "scalaz-scalacheck-binding" % scalazVersion % "test"
+    "org.scalaz" %% "scalaz-scalacheck-binding" % scalazVersion % "test",
 
-
+    "org.apache.kafka" %% "kafka" % kafkaVersion
 )

@@ -69,7 +69,7 @@ class TestScalazMonad extends FlatSpec{
         }
 
         //val res = Bag(5) flatMap  {c => Bag(c * 2) }
-        val res = Bag(3) flatMap {a => Bag(4) flatMap {b => Bag(5) flatMap  {c => Bag(a+b+c) }}}
-        println(res.content)  // 12
+        //val res = Bag(3) flatMap {a => Bag(4) flatMap {b => Bag(5) flatMap  {c => Bag(a+b+c) }}}
+        //println(res.content)  // 12
     }
 }

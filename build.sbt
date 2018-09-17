@@ -10,9 +10,9 @@ val sparkVersion = "2.3.0"
 val scalazVersion = "7.1.17"
 val kafkaVersion = "2.0.0"
 
-resolvers ++= Seq(
+/*resolvers ++= Seq(
     "apache-snapshots" at "https://repository.apache.org/content/repositories/releases/"
-)
+)*/
 
 libraryDependencies ++= Seq(
     "org.scalactic" %% "scalactic" % scalaTestVersion,

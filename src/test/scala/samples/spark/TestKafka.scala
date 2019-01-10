@@ -72,4 +72,20 @@ class TestKafka extends FlatSpec{
         productMessage("Hello!", "test-producer-1")
         Await.result(f, scala.concurrent.duration.Duration.Inf)
     }
+
+    "Stream" should "" in {
+        import org.apache.kafka.streams.scala.Serdes._
+        import org.apache.kafka.streams.scala.ImplicitConversions._
+
+        implicit val props = new Properties()
+        props.load(new FileInputStream("src/test/resources/kafka.properties"))
+
+        val builder = new StreamsBuilder()
+        val textLines: KStream[String, String] = builder.stream[String, String]("streams-plaintext-input")
+        val wordCounts: KTable[String, Long] = textLines
+            .flatMapValues(textLine => textLine.toLowerCase.split("\\W+"))
+            .groupBy((_, word) => word)
+            .count()
+        wordCounts.toStream.to("streams-wordcount-output")
+    }
 }

@@ -74,6 +74,15 @@ class TestKafka extends FlatSpec{
     }
 
     "Stream" should "" in {
+        /**
+          *
+            $ echo -e "all streams lead to kafka\nhello kafka streams\njoin kafka summit" > /tmp/file-input.txt
+
+            $ cat /tmp/file-input.txt | bin/kafka-console-producer.sh \
+                --broker-list kafka01.hadoop.docker:9092 \
+                --producer.config config/producer.properties \
+                --topic test
+          * */
         import org.apache.kafka.streams.scala.Serdes._
         import org.apache.kafka.streams.scala.ImplicitConversions._
 
